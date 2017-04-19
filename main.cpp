@@ -10,8 +10,12 @@
 #include <cstdlib>
 #include <cstdio>
     HWND text_tri;
+    HWND text_log;
+    HWND text_pow_1,text_pow_2;
     HWND button;
     char textsave_tri[128] ;
+    char textsave_log[128] ;
+    char textsave_pow_1[64],textsave_pow_2[64] ;
 
 
 
@@ -59,7 +63,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
            WS_VISIBLE | WS_MAXIMIZE, /* default window */
            CW_USEDEFAULT,       /* Windows decides the position */
            CW_USEDEFAULT,       /* where the window ends up on the screen */
-           640,                 /* The programs width */
+           800,                 /* The programs width */
            480,                 /* and height in pixels */
            HWND_DESKTOP,        /* The window is a child-window to desktop */
            NULL,                /* No menu */
@@ -97,8 +101,11 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
         CreateWindow("STATIC",
                      "Calculator",
                      WS_VISIBLE | WS_CHILD,
-                     280,20,70,40,
+                     380,20,70,40,
                      hwnd,NULL,NULL,NULL);
+
+        //Trigonmetry
+        //1.Cos 2.Sin 3.Tan 4.Cosec 5. Sec 6.Cot 7.arc-sin 8.arc-cos 9.arc-tan
 
         CreateWindow("STATIC",
                      "Trigonometry",
@@ -109,7 +116,7 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
         button = CreateWindow("BUTTON",
                                 "EXIT",
                                 WS_VISIBLE | WS_CHILD | WS_BORDER,
-                                300,400,50,20,
+                                400,400,50,20,
                                 hwnd,(HMENU) 100,NULL,NULL);
 
         text_tri = CreateWindow("EDIT",
@@ -176,7 +183,87 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                               180,145,60,20,
                               hwnd,(HMENU) 9,NULL,NULL);
 
+        // log exp ln
+        //11.ln (ln's command is log) 12.log (log's command is log10) 13.exp (Exponential)
 
+                    CreateWindow("STATIC",
+                                 "Exponential and Logarithmic",
+                                 WS_VISIBLE | WS_CHILD,
+                                 50,190,200,20,
+                                 hwnd,NULL,NULL,NULL);
+
+        text_log = CreateWindow("EDIT",
+                                "",
+                                WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                90,220,100,20,
+                                hwnd,NULL,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "ln",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,250,60,20,
+                              hwnd,(HMENU) 11,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "log",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,250,60,20,
+                              hwnd,(HMENU) 12,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "exp",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,250,60,20,
+                              hwnd,(HMENU) 13,NULL,NULL);
+
+        //Pow and nth root
+        //21.Pow 22.nth root (use number^1/n)
+
+        CreateWindow("STATIC",
+                     "Power and nth Root",
+                     WS_VISIBLE | WS_CHILD ,
+                     320,40,150,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_pow_1 = CreateWindow("EDIT",
+                                "",
+                                WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                390,70,70,20,
+                                hwnd,NULL,NULL,NULL);
+
+        text_pow_2 = CreateWindow("EDIT",
+                                  "",
+                                  WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                  390,95,70,20,
+                                  hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "Number",
+                     WS_VISIBLE | WS_CHILD ,
+                     300,70,50,20,
+                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "Pow / Root",
+                     WS_VISIBLE | WS_CHILD ,
+                     300,95,70,20,
+                     hwnd,NULL,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Power",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               320,120,60,20,
+                               hwnd,(HMENU) 21,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Root",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               390,120,60,20,
+                               hwnd,(HMENU) 22,NULL,NULL);
+
+
+
+        // what's next?
 
 
 
