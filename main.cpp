@@ -107,10 +107,11 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
         //Trigonmetry
         //1.Cos 2.Sin 3.Tan 4.Cosec 5. Sec 6.Cot 7.arc-sin 8.arc-cos 9.arc-tan
 
+
         CreateWindow("STATIC",
-                     "Trigonometry",
+                     "Trigonometry and Hyperbolic",
                      WS_VISIBLE | WS_CHILD,
-                     100,40,120,20,
+                     45,40,200,20,
                      hwnd,NULL,NULL,NULL);
 
         button = CreateWindow("BUTTON",
@@ -183,41 +184,134 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                               180,145,60,20,
                               hwnd,(HMENU) 9,NULL,NULL);
 
+        button = CreateWindow("BUTTON",
+                              "CSC^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,170,60,20,
+                              hwnd,(HMENU) 10,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Sec^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,170,60,20,
+                              hwnd,(HMENU) 11,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Cot^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,170,60,20,
+                              hwnd,(HMENU) 12,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Sinh",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,195,60,20,
+                              hwnd,(HMENU) 13,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Cosh",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,195,60,20,
+                              hwnd,(HMENU) 14,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Tanh",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,195,60,20,
+                              hwnd,(HMENU) 15,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "CSCh",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,220,60,20,
+                              hwnd,(HMENU) 16,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Sech",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,220,60,20,
+                              hwnd,(HMENU) 17,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Coth",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,220,60,20,
+                              hwnd,(HMENU) 18,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Sinh^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,245,60,20,
+                              hwnd,(HMENU) 19,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Cosh^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,245,60,20,
+                              hwnd,(HMENU) 20,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Tanh^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,245,60,20,
+                              hwnd,(HMENU) 21,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "CSCh^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              40,270,60,20,
+                              hwnd,(HMENU) 22,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Sech^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              110,270,60,20,
+                              hwnd,(HMENU) 13,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "Coth^(-1)",
+                              WS_VISIBLE | WS_CHILD | WS_BORDER,
+                              180,270,60,20,
+                              hwnd,(HMENU) 24,NULL,NULL);
+
+
+
+
         // log exp ln
-        //11.ln (ln's command is log) 12.log (log's command is log10) 13.exp (Exponential)
+        //31.ln (ln's command is log) 32.log (log's command is log10) 33.exp (Exponential)
 
                     CreateWindow("STATIC",
                                  "Exponential and Logarithmic",
                                  WS_VISIBLE | WS_CHILD,
-                                 50,190,200,20,
+                                 50,290+10,200,20,
                                  hwnd,NULL,NULL,NULL);
 
         text_log = CreateWindow("EDIT",
                                 "",
                                 WS_VISIBLE | WS_CHILD | WS_BORDER ,
-                                90,220,100,20,
+                                90,320+10,100,20,
                                 hwnd,NULL,NULL,NULL);
 
         button = CreateWindow("BUTTON",
                               "ln",
                               WS_VISIBLE | WS_CHILD | WS_BORDER,
-                              40,250,60,20,
-                              hwnd,(HMENU) 11,NULL,NULL);
+                              40,350+10,60,20,
+                              hwnd,(HMENU) 31,NULL,NULL);
 
         button = CreateWindow("BUTTON",
                               "log",
                               WS_VISIBLE | WS_CHILD | WS_BORDER,
-                              110,250,60,20,
-                              hwnd,(HMENU) 12,NULL,NULL);
+                              110,350+10,60,20,
+                              hwnd,(HMENU) 32,NULL,NULL);
 
         button = CreateWindow("BUTTON",
                               "exp",
                               WS_VISIBLE | WS_CHILD | WS_BORDER,
-                              180,250,60,20,
-                              hwnd,(HMENU) 13,NULL,NULL);
+                              180,350+10,60,20,
+                              hwnd,(HMENU) 33,NULL,NULL);
 
         //Pow and nth root
-        //21.Pow 22.nth root (use number^1/n)
+        //41.Pow 42.nth root (use number^1/n)
 
         CreateWindow("STATIC",
                      "Power and nth Root",
@@ -253,13 +347,13 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                               "Power",
                                WS_VISIBLE | WS_CHILD | WS_BORDER ,
                                320,120,60,20,
-                               hwnd,(HMENU) 21,NULL,NULL);
+                               hwnd,(HMENU) 41,NULL,NULL);
 
         button = CreateWindow("BUTTON",
                               "Root",
                                WS_VISIBLE | WS_CHILD | WS_BORDER ,
                                390,120,60,20,
-                               hwnd,(HMENU) 22,NULL,NULL);
+                               hwnd,(HMENU) 42,NULL,NULL);
 
 
 
