@@ -6,9 +6,9 @@
 
 #include <tchar.h>
 #include <windows.h>
-#include <math.h>
 #include <cstdlib>
 #include <cstdio>
+#include "Cal.h"
     HWND text_tri;
     HWND text_log;
     HWND text_pow_1,text_pow_2;
@@ -372,44 +372,167 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             else
             if(LOWORD(wParam) == 1)
             {
-                float coos,ans;
+                float ans;
                 char ptr[0];
                 GetWindowText(text_tri,&textsave_tri[0],64);
-                coos = atof(textsave_tri);
-                ans = cos(coos*3.14159265/180);
-
+                ans = COS(textsave_tri);
                 sprintf(ptr,"%f",ans);
-
                 ::MessageBox(hwnd, ptr ,"Result",MB_OK);
 
             }else
             if(LOWORD(wParam) == 2)
             {
-                float siin,ans;
+                float ans;
                 char ptr[0];
                 GetWindowText(text_tri,&textsave_tri[0],64);
-                siin = atof(textsave_tri);
-                ans = sin(siin*3.14159265/180);
-
+                ans = SIN(textsave_tri);
                 sprintf(ptr,"%f",ans);
-
                 ::MessageBox(hwnd, ptr ,"Result",MB_OK);
 
             }else
             if(LOWORD(wParam) == 3)
             {
-                float taan,ans;
+                float ans;
                 char ptr[0];
                 GetWindowText(text_tri,&textsave_tri[0],64);
-                taan = atof(textsave_tri);
-                ans = tan(taan*3.14159265/180);
-
+                ans = TAN(textsave_tri);
                 sprintf(ptr,"%f",ans);
-
                 ::MessageBox(hwnd, ptr ,"Result",MB_OK);
 
-            }
+            }else
+            if(LOWORD(wParam) == 4)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = COSEC(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd, ptr ,"Result",MB_OK);
 
+            }else
+            if(LOWORD(wParam) == 5)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = SEC(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 6)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = COT(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 7)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ASIN(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 8)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACOS(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 9)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ATAN(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 10)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACOSEC(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 11)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ASEC(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 12)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACOT(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+
+
+
+
+            if(LOWORD(wParam) == 31)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_log,&textsave_log[0],64);
+                ans = Ln(textsave_log);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 32)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_log,&textsave_log[0],64);
+                ans = LOG(textsave_log);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 33)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_log,&textsave_log[0],64);
+                ans = EXPO(textsave_log);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 41)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_pow_1,&textsave_pow_1[0],64);
+                GetWindowText(text_pow_2,&textsave_pow_2[0],64);
+                ans = POW(textsave_pow_1,textsave_pow_2);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 42)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_pow_1,&textsave_pow_1[0],64);
+                GetWindowText(text_pow_2,&textsave_pow_2[0],64);
+                ans = SQRT(textsave_pow_1,textsave_pow_2);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }
 
 
 
