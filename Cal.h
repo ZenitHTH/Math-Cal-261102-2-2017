@@ -1,4 +1,5 @@
 #include <math.h>
+#include <ctime>
 #define PI 3.14159265
 
 float SIN(char textsave_tri[]){  //trigonometric
@@ -107,3 +108,163 @@ float SQRT(char textsave_pow_1[],char textsave_pow_2[]){
 /*coming soon*/
 // float SINH(char textsave_log)
 
+
+float Velocity_End(char S[],char U[],char T[],char A[])
+{
+
+    float a,u,s,t;
+
+    a = atof(A);
+    u = atof(U);
+    s = atof(S);
+    t = atof(T);
+
+    if( s == 0) // v = u+at
+    {
+        return u+a*t;
+    }else
+    if( t == 0) // V^2 = U^2 + 2AS
+    {
+        return sqrt(pow(u,2) + 2*a*s);
+    }else
+    if(a == 0)
+    {
+        return ((2*s)/t) - u;
+    }else
+    {
+        srand(time(0));
+        int i = rand()%3;
+
+        if(i == 0) return u+a*t;
+        if(i == 1) return sqrt(pow(u,2) + 2*a*s);
+        if(i == 2) return ((2*s)/t) - u;
+    }
+
+}
+
+float Velocity_Start(char S[],char V[],char T[],char A[])
+{
+
+    float a,v,s,t;
+
+    a = atof(A);
+    v = atof(V);
+    s = atof(S);
+    t = atof(T);
+
+    if( s == 0) // u = v-at
+    {
+        return v-a*t;
+    }else
+    if( t == 0) // U^2 = V^2 - 2AS
+    {
+        return sqrt(pow(v,2) - 2*a*s);
+    }else
+    if(a == 0)
+    {
+        return ((2*s)/t) - v;
+    }else
+    {
+        srand(time(0));
+        int i = rand()%3;
+
+        if(i == 0) return v-a*t;
+        if(i == 1) return sqrt(pow(v,2) - 2*a*s);
+        if(i == 2) return ((2*s)/t) - v;
+    }
+
+}
+
+float Distance(char U[],char V[],char T[],char A[])
+{
+    float a,v,u,t;
+
+    a = atof(A);
+    v = atof(V);
+    u = atof(U);
+    t = atof(T);
+
+    if(a == 0)
+    {
+        return ((u+v)/2)*t;
+    }else
+    if(v == 0)
+    {
+        return (u*t) - (0.5*a*t*t);
+    }else
+    if(t == 0)
+    {
+        return ((v*v)-(u*u))/(2*a);
+    }else
+    {
+        srand(time(0));
+        int i = rand()%3;
+
+        if(i == 0) return ((u+v)/2)*t;
+        if(i == 1) return (u*t) - (0.5*a*t*t);
+        if(i == 2) return ((v*v)-(u*u))/(2*a);
+    }
+}
+
+float Acceleration(char U[],char V[],char T[],char S[])
+{
+    float s,v,u,t;
+
+    s = atof(S);
+    v = atof(V);
+    u = atof(U);
+    t = atof(T);
+
+    if(s == 0)
+    {
+        return (v-u)/t;
+    }else
+    if(v == 0)
+    {
+        return ((2*s)/t) - (u/t);
+    }else
+    if(t == 0)
+    {
+        return ((v*v)-(u*u))/(2*s);
+    }else
+    {
+        srand(time(0));
+        int i = rand()%3;
+
+        if(i == 0) return (v-u)/t;
+        if(i == 1) return (2*s)/t - u/t;
+        if(i == 2) return ((v*v)-(u*u))/(2*s);
+    }
+
+}
+
+float Time(char U[],char V[],char A[],char S[])
+{
+	float s,v,u,a;
+
+    s = atof(S);
+    v = atof(V);
+    u = atof(U);
+    a = atof(A);
+
+	if(v == 0)
+	{
+		return (sqrt(pow(u,2)+(2*a*s)) - u)/a;
+	}else
+	if(a == 0)
+	{
+		return (2*s)/(u+v);
+	}else
+	if(s == 0)
+	{
+		return (v-u)/a;
+	}else
+    {
+        srand(time(0));
+        int i = rand()%3;
+
+        if(i == 0) return (sqrt(pow(u,2)+(2*a*s)) - u)/a;
+        if(i == 1) return (2*s)/(u+v);
+        if(i == 2) return (v-u)/a;
+    }
+}
