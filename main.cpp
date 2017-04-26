@@ -12,10 +12,12 @@
     HWND text_tri;
     HWND text_log;
     HWND text_pow_1,text_pow_2;
+    HWND text_1dmove_v,text_1dmove_u,text_1dmove_s,text_1dmove_t,text_1dmove_a;
     HWND button;
     char textsave_tri[128] ;
     char textsave_log[128] ;
     char textsave_pow_1[64],textsave_pow_2[64] ;
+    char textsave_1dmove_v[16],textsave_1dmove_u[16],textsave_1dmove_s[16],textsave_1dmove_t[16],textsave_1dmove_a[16];
 
 
 
@@ -356,8 +358,113 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                                hwnd,(HMENU) 42,NULL,NULL);
 
 
+        //1D-movement
 
-        // what's next?
+        CreateWindow("STATIC",
+                     "1D-Movement",
+                     WS_VISIBLE | WS_CHILD ,
+                     340,150,100,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "V :",
+                     WS_VISIBLE | WS_CHILD ,
+                     300,170,30,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_1dmove_v = CreateWindow("EDIT",
+                                     "",
+                                     WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                     320,170,60,20,
+                                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "U :",
+                     WS_VISIBLE | WS_CHILD ,
+                     300,200,30,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_1dmove_u = CreateWindow("EDIT",
+                                     "",
+                                     WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                     320,200,60,20,
+                                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "A :",
+                     WS_VISIBLE | WS_CHILD ,
+                     390,170,30,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_1dmove_a = CreateWindow("EDIT",
+                                     "",
+                                     WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                     410,170,60,20,
+                                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "S :",
+                     WS_VISIBLE | WS_CHILD ,
+                     390,200,30,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_1dmove_s = CreateWindow("EDIT",
+                                     "",
+                                     WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                     410,200,60,20,
+                                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "T :",
+                     WS_VISIBLE | WS_CHILD ,
+                     350,230,30,20,
+                     hwnd,NULL,NULL,NULL);
+
+        text_1dmove_t = CreateWindow("EDIT",
+                                     "",
+                                     WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                                     370,230,60,20,
+                                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "Find",
+                     WS_VISIBLE | WS_CHILD ,
+                     370,260,40,20,
+                     hwnd,NULL,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "V",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               300,280,30,20,
+                               hwnd,(HMENU) 51,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "U",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               335,280,30,20,
+                               hwnd,(HMENU) 52,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "A",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               370,280,30,20,
+                               hwnd,(HMENU) 53,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "S",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               405,280,30,20,
+                               hwnd,(HMENU) 54,NULL,NULL);
+
+        button = CreateWindow("BUTTON",
+                              "T",
+                               WS_VISIBLE | WS_CHILD | WS_BORDER ,
+                               440,280,30,20,
+                               hwnd,(HMENU) 55,NULL,NULL);
+
+
+
+
+
 
 
 
@@ -532,7 +639,84 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                 ans = SQRT(textsave_pow_1,textsave_pow_2);
                 sprintf(ptr,"%f",ans);
                 ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 51) // Velocity
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_1dmove_a,&textsave_1dmove_a[0],64);
+                GetWindowText(text_1dmove_v,&textsave_1dmove_v[0],64);
+                GetWindowText(text_1dmove_u,&textsave_1dmove_u[0],64);
+                GetWindowText(text_1dmove_s,&textsave_1dmove_s[0],64);
+                GetWindowText(text_1dmove_t,&textsave_1dmove_t[0],64);
+                ans = Velocity_End(textsave_1dmove_s,textsave_1dmove_u,
+                                     textsave_1dmove_t,textsave_1dmove_a);
+                sprintf(ptr,"%f",ans);
+
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 52) // Velocity_start
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_1dmove_a,&textsave_1dmove_a[0],64);
+                GetWindowText(text_1dmove_v,&textsave_1dmove_v[0],64);
+                GetWindowText(text_1dmove_u,&textsave_1dmove_u[0],64);
+                GetWindowText(text_1dmove_s,&textsave_1dmove_s[0],64);
+                GetWindowText(text_1dmove_t,&textsave_1dmove_t[0],64);
+                ans = Velocity_Start(textsave_1dmove_s,textsave_1dmove_v,
+                                     textsave_1dmove_t,textsave_1dmove_a);
+                sprintf(ptr,"%f",ans);
+
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 53) // Acceleration
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_1dmove_a,&textsave_1dmove_a[0],64);
+                GetWindowText(text_1dmove_v,&textsave_1dmove_v[0],64);
+                GetWindowText(text_1dmove_u,&textsave_1dmove_u[0],64);
+                GetWindowText(text_1dmove_s,&textsave_1dmove_s[0],64);
+                GetWindowText(text_1dmove_t,&textsave_1dmove_t[0],64);
+                ans = Acceleration(textsave_1dmove_u,textsave_1dmove_v,
+                                     textsave_1dmove_t,textsave_1dmove_s);
+                sprintf(ptr,"%f",ans);
+
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 54) // Distant
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_1dmove_a,&textsave_1dmove_a[0],64);
+                GetWindowText(text_1dmove_v,&textsave_1dmove_v[0],64);
+                GetWindowText(text_1dmove_u,&textsave_1dmove_u[0],64);
+                GetWindowText(text_1dmove_s,&textsave_1dmove_s[0],64);
+                GetWindowText(text_1dmove_t,&textsave_1dmove_t[0],64);
+                ans = Distance(textsave_1dmove_u,textsave_1dmove_v,
+                                     textsave_1dmove_t,textsave_1dmove_a);
+                sprintf(ptr,"%f",ans);
+
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 55) // Time
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_1dmove_a,&textsave_1dmove_a[0],64);
+                GetWindowText(text_1dmove_v,&textsave_1dmove_v[0],64);
+                GetWindowText(text_1dmove_u,&textsave_1dmove_u[0],64);
+                GetWindowText(text_1dmove_s,&textsave_1dmove_s[0],64);
+                GetWindowText(text_1dmove_t,&textsave_1dmove_t[0],64);
+                ans = Time(textsave_1dmove_u,textsave_1dmove_v,
+                                     textsave_1dmove_a,textsave_1dmove_s);
+                sprintf(ptr,"%f",ans);
+
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
             }
+
+
 
 
 
