@@ -106,8 +106,8 @@ float SQRT(char textsave_pow_1[],char textsave_pow_2[]){
 	sqrt2 = atof(textsave_pow_2);
 	return pow(sqrt1,1/sqrt2);
 }
-/*coming soon*/
- float SINH(char textsave_tri[]){
+
+ float SINH(char textsave_tri[]){     /*Hyperbolic function*/
  	float sinhh;
  	sinhh = atof(textsave_tri);
  	return (pow(e,sinhh)-pow(e,-sinhh))/2;
@@ -143,6 +143,41 @@ float SECH(char textsave_tri[]){
  	return 1/tanh(cothh);
  }
  
+ float ASINH(char textsave_tri[]){
+ 	float asinhh;
+ 	asinhh = atof(textsave_tri);
+ 	return log(asinhh+sqrt(pow(asinhh,2)+1));
+ }
+ 
+ float ACOSH(char textsave_tri[]){
+ 	float acoshh;
+ 	acoshh = atof(textsave_tri);
+ 	return log(acoshh+sqrt(pow(acoshh,2)-1));
+ }
+ 
+ float ATANH(char textsave_tri[]){
+ 	float atanhh;
+ 	atanhh = atof(textsave_tri);
+ 	return 1/2*log((1+atanhh)/(1-atanhh));
+ }
+ 
+ float ACSCH(char textsave_tri[]){
+ 	float acschh;
+ 	acschh = atof(textsave_tri);
+ 	return log((1+sqrt(1+pow(acschh,2)))/acschh);
+ }
+ 
+ float ASECH(char textsave_tri[]){
+ 	float asechh;
+ 	asechh = atof(textsave_tri);
+ 	return log((1+sqrt(1-pow(asechh,2)))/asechh);
+ }
+ 
+ float ACOTH(char textsave_tri[]){
+ 	float acothh;
+ 	acothh = atof(textsave_tri);
+ 	return 1/2*log((acothh+1)/(acothh-1));
+ }
 float Velocity_End(char S[],char U[],char T[],char A[])
 {
 
