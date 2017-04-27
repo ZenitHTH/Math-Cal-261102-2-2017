@@ -1,6 +1,7 @@
 #include <math.h>
 #include <ctime>
 #define PI 3.14159265
+#define e  2.718281828
 
 float SIN(char textsave_tri[]){  //trigonometric
 	float siin;
@@ -59,19 +60,19 @@ float ATAN(char textsave_tri[]){
 float ACOSEC(char textsave_tri[]){
 	float acsc;
 	acsc = atof(textsave_tri);
-    return asin(1/acsc);
+    return asin(1/acsc)*180/PI;
 }
 
 float ASEC(char textsave_tri[]){
 	float asecc;
 	asecc = atof(textsave_tri);
-    return acos(1/asecc);
+    return acos(1/asecc)*180/PI;
 }
 
 float ACOT(char textsave_tri[]){
 	float acott;
 	acott = atof(textsave_tri);
-    return atan(1/acott);
+    return atan(1/acott)*180/PI;
 }
 
 float Ln(char textsave_log[]){ //expo & log
@@ -106,9 +107,42 @@ float SQRT(char textsave_pow_1[],char textsave_pow_2[]){
 	return pow(sqrt1,1/sqrt2);
 }
 /*coming soon*/
-// float SINH(char textsave_log)
+ float SINH(char textsave_tri[]){
+ 	float sinhh;
+ 	sinhh = atof(textsave_tri);
+ 	return (pow(e,sinhh)-pow(e,-sinhh))/2;
+ }
 
+float COSH(char textsave_tri[]){
+ 	float coshh;
+ 	coshh = atof(textsave_tri);
+ 	return (pow(e,coshh)+pow(e,-coshh))/2;
+ }
+ 
+ float TANH(char textsave_tri[]){
+ 	float tanhh;
+ 	tanhh = atof(textsave_tri);
+ 	return sinh(tanhh)/cosh(tanhh);
+ }
 
+float CSCH(char textsave_tri[]){
+ 	float cschh;
+ 	cschh = atof(textsave_tri);
+ 	return 1/sinh(cschh);
+ }
+ 
+float SECH(char textsave_tri[]){
+ 	float sechh;
+ 	sechh = atof(textsave_tri);
+ 	return 1/cosh(sechh);
+ }
+ 
+ float COTH(char textsave_tri[]){
+ 	float cothh;
+ 	cothh = atof(textsave_tri);
+ 	return 1/tanh(cothh);
+ }
+ 
 float Velocity_End(char S[],char U[],char T[],char A[])
 {
 
