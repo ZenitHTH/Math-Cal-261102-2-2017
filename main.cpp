@@ -461,11 +461,95 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                                440,280,30,20,
                                hwnd,(HMENU) 55,NULL,NULL);
 
+       CreateWindow("STATIC",
+                     "How to use 1D-Movement",
+                     WS_VISIBLE | WS_CHILD ,
+                     550,40,170,20,
+                     hwnd,NULL,NULL,NULL);
 
 
+        CreateWindow("STATIC",
+                     "1.If you don't know ",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,70,200,20,
+                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "that answer or volume input ' 0 '",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,90,300,20,
+                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "2.you can input number if you know to",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,110,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "find answer by click button so button",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,130,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "under the 'Find' .",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,150,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "Read me before you use Inverse hyperbolic ",
+                     WS_VISIBLE | WS_CHILD ,
+                     500,190,400,20,
+                     hwnd,NULL,NULL,NULL);
 
 
+        CreateWindow("STATIC",
+                     "1.input number more than or equal 1",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,210,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     " to see a answer of arcosh.",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,230,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "2.input number less than 1 (Not Negative",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,250,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     " number) to see a answer of artanh.",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,270,400,20,
+                     hwnd,NULL,NULL,NULL);
 
+        CreateWindow("STATIC",
+                     "3.input number more than 1 to see ",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,290,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "a answer of arcoth.",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,310,400,20,
+                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "4.input number between 0 and 1 to see ",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,330,400,20,
+                     hwnd,NULL,NULL,NULL);
+        CreateWindow("STATIC",
+                     "a answer of arsech.",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,350,400,20,
+                     hwnd,NULL,NULL,NULL);
+
+        CreateWindow("STATIC",
+                     "5.Do not input 0 in arcseh ",
+                     WS_VISIBLE | WS_CHILD ,
+                     520,370,400,20,
+                     hwnd,NULL,NULL,NULL);
 
 
         break;
@@ -589,10 +673,114 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                 sprintf(ptr,"%f",ans);
                 ::MessageBox(hwnd,ptr,"Result",MB_OK);
             }else
-
-
-
-
+            if(LOWORD(wParam) == 13)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = SINH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 14)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = COSH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 15)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = TANH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 16)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = CSCH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 17)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = SECH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 18)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = COTH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 19)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ASINH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 20)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACOSH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 21)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ATANH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 22)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACSCH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 23)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ASECH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
+            if(LOWORD(wParam) == 24)
+            {
+                float ans;
+                char ptr[0];
+                GetWindowText(text_tri,&textsave_tri[0],64);
+                ans = ACOTH(textsave_tri);
+                sprintf(ptr,"%f",ans);
+                ::MessageBox(hwnd,ptr,"Result",MB_OK);
+            }else
             if(LOWORD(wParam) == 31)
             {
                 float ans;
