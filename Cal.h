@@ -118,7 +118,7 @@ float COSH(char textsave_tri[]){
  	coshh = atof(textsave_tri);
  	return (pow(e,coshh)+pow(e,-coshh))/2;
  }
- 
+
  float TANH(char textsave_tri[]){
  	float tanhh;
  	tanhh = atof(textsave_tri);
@@ -130,53 +130,53 @@ float CSCH(char textsave_tri[]){
  	cschh = atof(textsave_tri);
  	return 1/sinh(cschh);
  }
- 
+
 float SECH(char textsave_tri[]){
  	float sechh;
  	sechh = atof(textsave_tri);
  	return 1/cosh(sechh);
  }
- 
+
  float COTH(char textsave_tri[]){
  	float cothh;
  	cothh = atof(textsave_tri);
  	return 1/tanh(cothh);
  }
- 
+
  float ASINH(char textsave_tri[]){
  	float asinhh;
  	asinhh = atof(textsave_tri);
  	return log(asinhh+sqrt(pow(asinhh,2)+1));
  }
- 
+
  float ACOSH(char textsave_tri[]){
  	float acoshh;
  	acoshh = atof(textsave_tri);
  	return log(acoshh+sqrt(pow(acoshh,2)-1));
  }
- 
+
  float ATANH(char textsave_tri[]){
  	float atanhh;
  	atanhh = atof(textsave_tri);
- 	return 1/2*log((1+atanhh)/(1-atanhh));
+ 	return 0.5*log((1+atanhh)/(1-atanhh));
  }
- 
+
  float ACSCH(char textsave_tri[]){
  	float acschh;
  	acschh = atof(textsave_tri);
  	return log((1+sqrt(1+pow(acschh,2)))/acschh);
  }
- 
+
  float ASECH(char textsave_tri[]){
  	float asechh;
  	asechh = atof(textsave_tri);
  	return log((1+sqrt(1-pow(asechh,2)))/asechh);
  }
- 
+
  float ACOTH(char textsave_tri[]){
  	float acothh;
  	acothh = atof(textsave_tri);
- 	return 1/2*log((acothh+1)/(acothh-1));
+ 	return 0.5*log((acothh+1)/(acothh-1));
  }
 float Velocity_End(char S[],char U[],char T[],char A[])
 {
